@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.Random;
 
 public class RegisterFrame extends JFrame {
+    String s = null;
     JTextField textField = new JTextField();
     SteamLabel keywordlabel = new SteamLabel("");
     JPasswordField passwordField = new JPasswordField();
@@ -46,16 +47,19 @@ public class RegisterFrame extends JFrame {
         register.setBounds(150,200,128,20);
         back.setBounds(284,200,128,20);
         register.addActionListener(e -> {
-            steamRegister();
-            JFrame frame = new LoginFrame("Steam 登录");
-            // 关闭窗口时 退出整个程序
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setResizable(false);
-            // 设置窗口大小
-            frame.setSize(480,330);
-            // 显示窗口
-            frame.setVisible(true);
-            dispose();
+            if (steamRegister())
+            {
+                JFrame frame = new LoginFrame("Steam 登录");
+                // 关闭窗口时 退出整个程序
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setResizable(false);
+                // 设置窗口大小
+                frame.setSize(480,330);
+                // 显示窗口
+                frame.setVisible(true);
+                dispose();
+            }
+
         });
         back.addActionListener(e -> {
             JFrame frame = new LoginFrame("Steam 登录");
@@ -124,11 +128,12 @@ public class RegisterFrame extends JFrame {
             if (rs.next()) {
                 getKey(name);
             } else {
-                String sql1 = "update record set acname = ? where id = ?";
-//                st = conn.prepareStatement(sql1);
-//                st.setString(2,"1");
-//                st.setString(1,name);
-                JOptionPane.showMessageDialog(null, "注册成功！您的找回码是" + str, "欢迎注册Steam",JOptionPane.INFORMATION_MESSAGE);
+                s = str;
+                String sql2 = "update record set acname = ? where id = ?";
+                st = conn.prepareStatement(sql2);
+                st.setString(2,"1");
+                st.setString(1,name);
+                int n=st.executeUpdate();//这里面不需要参数
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -148,17 +153,10 @@ public class RegisterFrame extends JFrame {
     }
 
 
-    public void steamRegister(){
+    public boolean steamRegister(){
         String pw = new String(passwordField.getPassword());
         int text = textField.getText().length();
         int pwd = pw.length();
-        if( text == 0 || pwd == 0 )
-            wrong.setVisible( true );
-        else if( text > 20 || pwd < 8 ) {
-            wrong.setVisible( true );
-        }
-        else
-            wrong.setVisible(false);
         Connection conn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -203,6 +201,20 @@ public class RegisterFrame extends JFrame {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
+        }
+        if( text == 0 || pwd == 0 ) {
+            wrong.setVisible(true);
+            return false;
+        }
+        else if( text > 20 || pwd < 8 ) {
+            wrong.setVisible( true );
+            return false;
+        }
+        else {
+            wrong.setVisible(false);
+            JOptionPane.showMessageDialog(null, "注册成功！您的找回码是" + s, "欢迎注册Steam",JOptionPane.INFORMATION_MESSAGE);
+            return true;
+            
         }
     }
 }

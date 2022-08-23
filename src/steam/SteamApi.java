@@ -49,7 +49,7 @@ public class SteamApi {
             rs = st.executeQuery();
             if (rs.next())
             {
-                System.out.println("成功");
+//                System.out.println("成功");
                 String sql2 = "update record set acname = ?, password = ? where id = ?";
                 st = conn.prepareStatement(sql2);
                 st.setString(3,"1");
