@@ -11,11 +11,11 @@ public class SteamTextField extends JTextField {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/steam";
+            String url = "jdbc:mysql://47.96.86.184:3306/steam";
             //user:登录数据库的用户名
-            String user = "root"; //自己的账号
+            String user = "HoveyQAQ"; //自己的账号
             //password:用户名对应的密码，这些都是自己之前设定的
-            String password = "zhyzhyzh2003"; //自己的密码
+            String password = "Zhyzhyzh2003!"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
             String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
