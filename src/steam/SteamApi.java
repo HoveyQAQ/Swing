@@ -1,12 +1,7 @@
 package steam;
+
 import javax.swing.*;
-import java.awt.*;
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SteamApi {
 
@@ -34,7 +29,7 @@ public class SteamApi {
             //password:用户名对应的密码，这些都是自己之前设定的
             String password = "zhyzhyzh2003"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
             Class clazz = Class.forName(driverName);
             Driver driver = (Driver) clazz.newInstance();
@@ -54,6 +49,7 @@ public class SteamApi {
             rs = st.executeQuery();
             if (rs.next())
             {
+                System.out.println("成功");
                 String sql2 = "update record set acname = ?, password = ? where id = ?";
                 st = conn.prepareStatement(sql2);
                 st.setString(3,"1");
@@ -67,7 +63,6 @@ public class SteamApi {
                     st.setString(2,"");
                 }
                 int n=st.executeUpdate();//这里面不需要参数
-
                 JOptionPane.showMessageDialog(null, "登录成功！", "欢迎登录Steam",JOptionPane.INFORMATION_MESSAGE);
                 bool = true;
             }
@@ -131,7 +126,7 @@ public class SteamApi {
             //password:用户名对应的密码，这些都是自己之前设定的
             String password = "zhyzhyzh2003"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
             Class clazz = Class.forName(driverName);
             Driver driver = (Driver) clazz.newInstance();

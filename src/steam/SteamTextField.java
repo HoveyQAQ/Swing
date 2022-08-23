@@ -17,7 +17,7 @@ public class SteamTextField extends JTextField {
             //password:用户名对应的密码，这些都是自己之前设定的
             String password = "zhyzhyzh2003"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
             Class clazz = Class.forName(driverName);
             Driver driver = (Driver) clazz.newInstance();

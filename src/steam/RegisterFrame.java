@@ -75,8 +75,8 @@ public class RegisterFrame extends JFrame {
         root.add( back );
         root.add( acname );
         root.add( password );
-        root.add( keyword );
-        root.add( keywordlabel );
+//        root.add( keyword );
+//        root.add( keywordlabel );
         root.add( textField );
         root.add( passwordField );
         root.add( wrong );
@@ -93,7 +93,7 @@ public class RegisterFrame extends JFrame {
         return stringBuffer.toString();
     }
 
-    public String getKey() {
+    public String getKey(String name) {
         Connection conn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -105,7 +105,7 @@ public class RegisterFrame extends JFrame {
             //password:用户名对应的密码，这些都是自己之前设定的
             String password = "zhyzhyzh2003"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
             Class clazz = Class.forName(driverName);
             Driver driver = (Driver) clazz.newInstance();
@@ -122,9 +122,13 @@ public class RegisterFrame extends JFrame {
             st.setString(1, str);
             rs = st.executeQuery();
             if (rs.next()) {
-                getKey();
+                getKey(name);
             } else {
-                JOptionPane.showMessageDialog(null, "注册成功！您的找回码是" + str, "欢迎登录Steam",JOptionPane.INFORMATION_MESSAGE);
+                String sql1 = "update record set acname = ? where id = ?";
+//                st = conn.prepareStatement(sql1);
+//                st.setString(2,"1");
+//                st.setString(1,name);
+                JOptionPane.showMessageDialog(null, "注册成功！您的找回码是" + str, "欢迎注册Steam",JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -165,7 +169,7 @@ public class RegisterFrame extends JFrame {
             //password:用户名对应的密码，这些都是自己之前设定的
             String password = "zhyzhyzh2003"; //自己的密码
             //mySql的驱动：com.mysql.jdbc.Driver
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             //2.实例化Driver
             Class clazz = Class.forName(driverName);
             Driver driver = (Driver) clazz.newInstance();
@@ -181,7 +185,7 @@ public class RegisterFrame extends JFrame {
             st = conn.prepareStatement(sql);
             st.setString(1,textField.getText());
             st.setString(2,pw);
-            st.setString(3,getKey());
+            st.setString(3,getKey(textField.getText()));
             int count=st.executeUpdate();//返回增加的记录条数
 //            if (count > 0)
 //                System.out.println("成功");

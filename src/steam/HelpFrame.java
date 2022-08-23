@@ -46,6 +46,15 @@ public class HelpFrame extends JFrame {
         back.setBounds(284,200,128,20);
         sure.addActionListener(e -> {
             steamHelper();
+            JFrame frame = new LoginFrame("Steam 登录");
+            // 关闭窗口时 退出整个程序
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(false);
+            // 设置窗口大小
+            frame.setSize(480,330);
+            // 显示窗口
+            frame.setVisible(true);
+            dispose();
         });
         back.addActionListener(e -> {
             JFrame frame = new LoginFrame("Steam 登录");
@@ -65,8 +74,8 @@ public class HelpFrame extends JFrame {
         root.add( back );
         root.add( acname );
         root.add( password );
-        root.add( keyword );
-        root.add( nameLabel );
+//        root.add( keyword );
+//        root.add( nameLabel );
         root.add( keyFiled );
         root.add( passwordField );
         root.add( wrong );
@@ -102,8 +111,7 @@ public class HelpFrame extends JFrame {
             st.setString(1, str);
             rs = st.executeQuery();
             if (rs.next()) {
-                System.out.println("成功1");
-                nameLabel.setText( rs.getString( "acname" ));
+                JOptionPane.showMessageDialog(null, "找回成功！您的账户是" +rs.getString( "acname" ), "欢迎回到Steam",JOptionPane.INFORMATION_MESSAGE);
             }
             str = rs.getString( "acname");
         } catch (Exception e) {
@@ -161,11 +169,8 @@ public class HelpFrame extends JFrame {
             st = conn.prepareStatement(sql);
             st.setString(2, str);
             st.setString(1, pw);
-            rs = st.executeQuery();
-            if (rs.next())
-            {
-                System.out.println("成功2");
-            }
+            int n=st.executeUpdate();//这里面不需要参数
+
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
