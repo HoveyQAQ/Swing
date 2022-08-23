@@ -47,6 +47,15 @@ public class RegisterFrame extends JFrame {
         back.setBounds(284,200,128,20);
         register.addActionListener(e -> {
             steamRegister();
+            JFrame frame = new LoginFrame("Steam 登录");
+            // 关闭窗口时 退出整个程序
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(false);
+            // 设置窗口大小
+            frame.setSize(480,330);
+            // 显示窗口
+            frame.setVisible(true);
+            dispose();
         });
         back.addActionListener(e -> {
             JFrame frame = new LoginFrame("Steam 登录");
@@ -63,7 +72,7 @@ public class RegisterFrame extends JFrame {
         // 组件添加
         root.add( icon );
         root.add( register );
-        root.add(back);
+        root.add( back );
         root.add( acname );
         root.add( password );
         root.add( keyword );
@@ -108,14 +117,14 @@ public class RegisterFrame extends JFrame {
 //            System.out.println(conn);
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
-            String sql = "select * from user where key = ?";
+            String sql = "select * from user where IDkey = ?";
             st = conn.prepareStatement(sql);
             st.setString(1, str);
             rs = st.executeQuery();
             if (rs.next()) {
                 getKey();
             } else {
-                return str;
+                JOptionPane.showMessageDialog(null, "注册成功！您的找回码是" + str, "欢迎登录Steam",JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -131,7 +140,6 @@ public class RegisterFrame extends JFrame {
                 e.printStackTrace();
             }
         }
-        keywordlabel.setText(str);
         return str;
     }
 
@@ -166,7 +174,7 @@ public class RegisterFrame extends JFrame {
             //4.通过DriverManager的getConnection方法，获取Connection类的对象
             conn = DriverManager.getConnection(url, user, password);
             //5.打印出conn对象
-            System.out.println(conn);
+//            System.out.println(conn);
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
             String sql = "insert into user values (?,?,?)";

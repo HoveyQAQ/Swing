@@ -61,13 +61,13 @@ public class HelpFrame extends JFrame {
 
         // 组件添加
         root.add( icon );
-        root.add(sure);
+        root.add( sure );
         root.add( back );
         root.add( acname );
         root.add( password );
         root.add( keyword );
-        root.add(nameLabel);
-        root.add(keyFiled);
+        root.add( nameLabel );
+        root.add( keyFiled );
         root.add( passwordField );
         root.add( wrong );
     }
@@ -96,7 +96,7 @@ public class HelpFrame extends JFrame {
 //            System.out.println(conn);
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
-            String sql = "select * from user where key = ?";
+            String sql = "select * from user where IDkey = ?";
             System.out.println(str);
             st = conn.prepareStatement(sql);
             st.setString(1, str);
@@ -153,11 +153,11 @@ public class HelpFrame extends JFrame {
             //4.通过DriverManager的getConnection方法，获取Connection类的对象
             conn = DriverManager.getConnection(url, user, password);
             //5.打印出conn对象
-            System.out.println(conn);
+//            System.out.println(conn);
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
             getName();
-            String sql = "update user set password = ? where key = ?";
+            String sql = "update user set password = ? where IDkey = ?";
             st = conn.prepareStatement(sql);
             st.setString(2, str);
             st.setString(1, pw);

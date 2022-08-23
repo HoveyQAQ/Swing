@@ -39,7 +39,7 @@ public class TestJDBC {
             //4.通过DriverManager的getConnection方法，获取Connection类的对象
             conn = DriverManager.getConnection(url, user, password);
             //5.打印出conn对象
-            System.out.println(conn);
+//            System.out.println(conn);
 
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
