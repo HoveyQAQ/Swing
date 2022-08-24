@@ -6,6 +6,7 @@ public class SteamStoreFrame extends UserFrame {
 
     public SteamStoreFrame(String name) {
         super(name);
+        this.setTitle("Steam 商店");
         //图片
         PictureView icon = new PictureView();
         icon.setImage("/res/cs.png");
