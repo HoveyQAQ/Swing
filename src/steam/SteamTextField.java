@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.sql.*;
 
 public class SteamTextField extends JTextField {
-    public SteamTextField ()
+    public SteamTextField()
     {
         this.setBounds(150,110,260,20);
         Connection conn = null;
@@ -50,4 +50,5 @@ public class SteamTextField extends JTextField {
             }
         }
     }
+
 }

@@ -7,13 +7,13 @@ public class SteamApi {
 
     public static void UserRequest (String name)
     {
-        JFrame userFrame = new UserFrame(name);
-        userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        userFrame.setResizable(false);
+        JFrame userCenterFrame = new UserCenterFrame(name);
+        userCenterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        userCenterFrame.setResizable(false);
         // 设置窗口大小
-        userFrame.setSize(1000,600);
+        userCenterFrame.setSize(1000,600);
         // 显示窗口
-        userFrame.setVisible(true);
+        userCenterFrame.setVisible(true);
     }
 
     public static boolean loginRequest(String acname, JPasswordField jpw, JCheckBox rem) {

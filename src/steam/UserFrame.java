@@ -4,10 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UserFrame extends JFrame {
+    JPanel root = new JPanel();
     public UserFrame (String name)
     {
         super( "用户信息" );
-        JPanel root = new JPanel();
+
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
         this.setLocationRelativeTo(null);
