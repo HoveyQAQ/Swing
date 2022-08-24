@@ -1,4 +1,4 @@
-package SnakeGame;
+package steam;
 
 import java.util.Random;
 

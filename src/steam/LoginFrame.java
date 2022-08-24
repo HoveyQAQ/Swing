@@ -57,7 +57,7 @@ public class LoginFrame extends JFrame {
         login.addActionListener(e -> {
             if (SteamApi.loginRequest(textField.getText(),passwordField,remember))
             {
-                SteamApi.UserRequest(textField.getText());
+                SteamApi.userRequest(textField.getText());
                 dispose();
             }
         });

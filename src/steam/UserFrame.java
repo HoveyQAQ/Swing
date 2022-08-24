@@ -1,7 +1,5 @@
 package steam;
 
-import SnakeGame.MainFrame;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -44,6 +42,8 @@ public class UserFrame extends JFrame {
         storehouse.setHorizontalAlignment(SwingConstants.CENTER);
         market.setHorizontalAlignment(SwingConstants.CENTER);
         snake.setHorizontalAlignment(SwingConstants.CENTER);
+        back.setHorizontalAlignment(SwingConstants.CENTER);
+
         back.addActionListener(e -> {
             JFrame frame = new LoginFrame("Steam 登录");
             // 关闭窗口时 退出整个程序
@@ -61,19 +61,19 @@ public class UserFrame extends JFrame {
             dispose();
         });
         user.addActionListener(e -> {
-            SteamApi.UserRequest(name);
+            SteamApi.userRequest(name);
             dispose();
         });
         store.addActionListener(e -> {
-            SteamApi.OpenStore(name);
+            SteamApi.openStore(name);
             dispose();
         });
         storehouse.addActionListener(e -> {
-            SteamApi.OpenStoreHouse(name);
-            dispose();
+            SteamApi.openStoreHouse(name);
+
         });
         market.addActionListener(e -> {
-            SteamApi.OpenMarket(name);
+            SteamApi.openMarket(name);
             dispose();
         });
         snake.addActionListener(e -> {

@@ -188,12 +188,19 @@ public class RegisterFrame extends JFrame {
 //            System.out.println(conn);
             //获取statement对象
             /*Statement statement = connection.createStatement();*/
-            String sql = "insert into user values (?,?,?)";
+            String sql = "insert into user values (?,?,?,?)";
             st = conn.prepareStatement(sql);
             st.setString(1,textField.getText());
             st.setString(2,pw);
-            st.setString(3,getKey(textField.getText()));
+            String str = getKey(textField.getText());
+            st.setString(3,str);
+            st.setInt(4,1000);
             int count=st.executeUpdate();//返回增加的记录条数
+            String sql1 = "insert into storehouse values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            st = conn.prepareStatement(sql1);
+            st.setString( 1,str );
+            for (int i = 2; i <= 51; i ++)  st.setInt( i, 0);
+            count=st.executeUpdate();//返回增加的记录条数
 //            if (count > 0)
 //                System.out.println("成功");
 //            else System.out.println("失败");
