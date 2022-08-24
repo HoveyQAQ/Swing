@@ -1353,6 +1353,7 @@ public class SteamApi {
             if (p - value > 0) {
                 st.setInt(1, p - value);
                 SteamApi.addStoreHouse(name,Item);
+                JOptionPane.showMessageDialog(null, "购买成功 扣款98元", "欢迎下次光临",JOptionPane.INFORMATION_MESSAGE);
             }
             else
                 JOptionPane.showMessageDialog(null, "余额不足！！", "请扫描充值余额",JOptionPane.ERROR_MESSAGE);
