@@ -58,6 +58,20 @@ public class UserCenterFrame extends UserFrame{
                 dispose();
             }
         });
+        uCB.addActionListener(e -> {
+            if (SteamApi.deleteUser(name))
+            {
+                JFrame frame = new LoginFrame("Steam 登录");
+                // 关闭窗口时 退出整个程序
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setResizable(false);
+                // 设置窗口大小
+                frame.setSize(480,330);
+                // 显示窗口
+                frame.setVisible(true);
+                dispose();
+            }
+        });
         // 添加
         root.add( accountName );
         root.add( password );

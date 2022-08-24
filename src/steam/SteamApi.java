@@ -243,5 +243,59 @@ public class SteamApi {
     }
 
 
+    public static boolean deleteUser(String name) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String url = "jdbc:mysql://47.96.86.184:3306/steam";
+            //user:登录数据库的用户名
+            String user = "HoveyQAQ"; //自己的账号
+            //password:用户名对应的密码，这些都是自己之前设定的
+            String password = "Zhyzhyzh2003!"; //自己的密码
+            //mySql的驱动：com.mysql.jdbc.Driver
+            String driverName = "com.mysql.cj.jdbc.Driver";
+            //2.实例化Driver
+            Class clazz = Class.forName(driverName);
+            Driver driver = (Driver) clazz.newInstance();
+            //3.通过DriverManager来注册驱动
+            DriverManager.registerDriver(driver);
+            //4.通过DriverManager的getConnection方法，获取Connection类的对象
+            conn = DriverManager.getConnection(url, user, password);
+            //5.打印出conn对象
+//            System.out.println(conn);
+            //获取statement对象
+            /*Statement statement = connection.createStatement();*/
+            String sql = "delete from user where acname = ?";
+            st = conn.prepareStatement(sql);
+            st.setString(1,name);
+            //执行语句
+            int n=st.executeUpdate();//这里面不需要参数
+            if (n > 0)
+            {
+                String sql3 = "update record set acname = ? , password = ? where id = ?";
+                PreparedStatement st1 = conn.prepareStatement(sql3);
+                st1.setString(3,"1");
+                st1.setString(1,"");
+                st1.setString(2,"");
+                int n1=st1.executeUpdate();//这里面不需要参数
+                return true;
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                //当conn不为空时
+                if(conn != null)
+                    //关闭conn资源
+                    conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 
 }
