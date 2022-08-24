@@ -1,5 +1,7 @@
 package steam;
 
+import SnakeGame.MainFrame;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,21 +15,30 @@ public class UserFrame extends JFrame {
         this.setContentPane( root );
         root.setLayout( null );
         SteamLabel yourself = new SteamLabel("用户:" + name);
+        SteamLabel balance = new SteamLabel("余额:" + SteamApi.getUserBalance( name ));
         SteamButton back = new SteamButton("退出");
         SteamButton user = new SteamButton("用户信息");
         SteamButton store = new SteamButton("商店");
         SteamButton storehouse = new SteamButton("库存");
         SteamButton market = new SteamButton("市场");
-        yourself.setBounds(800,0,100,20);
-        back.setBounds(900,40,100,20);
+        SteamButton snake = new SteamButton("贪吃蛇免费开玩");
+
+        yourself.setHorizontalAlignment(SwingConstants.LEFT);
+        balance.setHorizontalAlignment(SwingConstants.LEFT);
+        yourself.setBounds(820,0,100,22);
+        balance.setBounds(820,23,100,22);
+        back.setBounds(900,50,100,20);
+
         user.setBounds(0,0,90,40);
         store.setBounds(90,0,90,40);
         storehouse.setBounds(180,0,90,40);
         market.setBounds(270,0,90,40);
+        snake.setBounds(360,0,150,40);
         user.setHorizontalAlignment(SwingConstants.CENTER);
         store.setHorizontalAlignment(SwingConstants.CENTER);
         storehouse.setHorizontalAlignment(SwingConstants.CENTER);
         market.setHorizontalAlignment(SwingConstants.CENTER);
+        snake.setHorizontalAlignment(SwingConstants.CENTER);
         back.addActionListener(e -> {
             JFrame frame = new LoginFrame("Steam 登录");
             // 关闭窗口时 退出整个程序
@@ -58,12 +69,22 @@ public class UserFrame extends JFrame {
         market.addActionListener(e -> {
 
         });
+        snake.addActionListener(e -> {
+            JFrame snakeGame = new MainFrame();
+            Toolkit toolkit = Toolkit.getDefaultToolkit();
+            int x = (int)(toolkit.getScreenSize().getWidth()-snakeGame.getWidth())/2;
+            int y = (int)(toolkit.getScreenSize().getHeight()-snakeGame.getHeight())/2;
+            snakeGame.setLocation(x, y);
+            snakeGame.setVisible(true);
+        });
         root.add( yourself );
+        root.add( balance );
         root.add( back );
         root.add( user );
         root.add( store );
         root.add( storehouse );
         root.add( market );
+        root.add( snake );
 
     }
 }

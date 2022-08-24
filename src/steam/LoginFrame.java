@@ -12,6 +12,12 @@ public class LoginFrame extends JFrame {
         this.setContentPane( root );
         // 不使用布局器
         root.setLayout( null );
+        // 设置Rights
+        SteamLabel rights = new SteamLabel("© Copyright 2022. Powered by HoveyQAQTeam. All rights reserved.");
+        rights.setBounds(0,275,480,15);
+        rights.setHorizontalAlignment(SwingConstants.CENTER);
+        rights.setFont(new Font("微软雅黑",Font.BOLD,10));
+        root.add( rights );
         // 设置Steam图标
         PictureView icon = new PictureView();
         icon.setBorder(BorderFactory.createLineBorder(new Color(42, 45, 50)));
