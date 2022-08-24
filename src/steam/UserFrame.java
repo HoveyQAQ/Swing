@@ -6,7 +6,7 @@ import java.awt.*;
 public class UserFrame extends JFrame {
     public UserFrame (String name)
     {
-        super( "个人中心" );
+        super( "用户信息" );
         JPanel root = new JPanel();
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
