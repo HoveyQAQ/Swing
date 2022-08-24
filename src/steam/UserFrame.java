@@ -14,6 +14,11 @@ public class UserFrame extends JFrame {
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
         root.setLayout( null );
+        SteamLabel rights = new SteamLabel("© Copyright 2022. Powered by HoveyQAQTeam. All rights reserved.");
+        rights.setBounds(0,540,1000,15);
+        rights.setHorizontalAlignment(SwingConstants.CENTER);
+        rights.setFont(new Font("微软雅黑",Font.BOLD,10));
+        root.add( rights );
         SteamLabel yourself = new SteamLabel("用户:" + name);
         SteamLabel balance = new SteamLabel("余额:" + SteamApi.getUserBalance( name ));
         SteamButton back = new SteamButton("退出");
@@ -21,7 +26,7 @@ public class UserFrame extends JFrame {
         SteamButton store = new SteamButton("商店");
         SteamButton storehouse = new SteamButton("库存");
         SteamButton market = new SteamButton("市场");
-        SteamButton snake = new SteamButton("贪吃蛇免费开玩");
+        SteamButton snake = new SteamButton("贪吃蛇 免费开玩!");
 
         yourself.setHorizontalAlignment(SwingConstants.LEFT);
         balance.setHorizontalAlignment(SwingConstants.LEFT);
