@@ -500,24 +500,24 @@ public class SteamApi {
         switch (kind) {
             case "Recoil":
                 SteamApi.addStoreHouse(name,RecoilSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得" + RecoilSet[randomKey],"反冲武器箱" ,JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "恭喜您获得:" + RecoilSet[randomKey],"反冲武器箱" ,JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Nightmares":
                 SteamApi.addStoreHouse(name,NightmaresSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得" + NightmaresSet[randomKey], "梦魇武器箱",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "恭喜您获得:" + NightmaresSet[randomKey], "梦魇武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Clutch":
                 SteamApi.addStoreHouse(name,ClutchSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得" + ClutchSet[randomKey], "命悬武器箱",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "恭喜您获得:" + ClutchSet[randomKey], "命悬武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Gamma":
                 SteamApi.addStoreHouse(name,GammaSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得" + GammaSet[randomKey], "伽马武器箱",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "恭喜您获得:" + GammaSet[randomKey], "伽马武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Cobble":
                 SteamApi.addStoreHouse(name,CobbleSet[randomKey1]);
                 v = 4000;
-                JOptionPane.showMessageDialog(null, "恭喜您获得" + CobbleSet[randomKey1], "古堡激战纪念包",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "恭喜您获得:" + CobbleSet[randomKey1], "古堡激战纪念包",JOptionPane.INFORMATION_MESSAGE);
                 break;
             default: break;
         }
