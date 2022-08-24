@@ -9,13 +9,14 @@ public class LoginFrame extends JFrame {
         super(title);
         JPanel root = new JPanel();
         root.setBackground(new Color(42, 45, 50));
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
         this.setContentPane( root );
         // 不使用布局器
         root.setLayout( null );
         // 设置Steam图标
         PictureView icon = new PictureView();
         icon.setBorder(BorderFactory.createLineBorder(new Color(42, 45, 50)));
+
         icon.setImage("/res/img1.png");
         // 手工指定位置
         icon.setBounds(70,40,149,49);

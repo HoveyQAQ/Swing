@@ -1,6 +1,7 @@
 package steam;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class UserCenterFrame extends UserFrame{
 
@@ -53,6 +54,11 @@ public class UserCenterFrame extends UserFrame{
                 userCenterFrame.setResizable(false);
                 // 设置窗口大小
                 userCenterFrame.setSize(1000,600);
+                // 设置居中
+                Toolkit toolkit = Toolkit.getDefaultToolkit();
+                int x = (int)(toolkit.getScreenSize().getWidth()-userCenterFrame.getWidth())/2;
+                int y = (int)(toolkit.getScreenSize().getHeight()-userCenterFrame.getHeight())/2;
+                userCenterFrame.setLocation(x, y);
                 // 显示窗口
                 userCenterFrame.setVisible(true);
                 dispose();
@@ -67,6 +73,11 @@ public class UserCenterFrame extends UserFrame{
                 frame.setResizable(false);
                 // 设置窗口大小
                 frame.setSize(480,330);
+                // 设置居中
+                Toolkit toolkit = Toolkit.getDefaultToolkit();
+                int x = (int)(toolkit.getScreenSize().getWidth()-frame.getWidth())/2;
+                int y = (int)(toolkit.getScreenSize().getHeight()-frame.getHeight())/2;
+                frame.setLocation(x, y);
                 // 显示窗口
                 frame.setVisible(true);
                 dispose();

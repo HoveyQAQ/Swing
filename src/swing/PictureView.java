@@ -10,7 +10,6 @@ public class PictureView extends JPanel {
 
     private Image image;
     private Color bgColor;
-
     public PictureView()
     {
 //        try {

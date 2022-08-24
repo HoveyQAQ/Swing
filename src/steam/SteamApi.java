@@ -1,6 +1,7 @@
 package steam;
 
 import javax.swing.*;
+import java.awt.*;
 import java.sql.*;
 
 public class SteamApi {
@@ -12,6 +13,11 @@ public class SteamApi {
         userCenterFrame.setResizable(false);
         // 设置窗口大小
         userCenterFrame.setSize(1000,600);
+        // 设置居中
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        int x = (int)(toolkit.getScreenSize().getWidth()-userCenterFrame.getWidth())/2;
+        int y = (int)(toolkit.getScreenSize().getHeight()-userCenterFrame.getHeight())/2;
+        userCenterFrame.setLocation(x, y);
         // 显示窗口
         userCenterFrame.setVisible(true);
     }
@@ -98,6 +104,11 @@ public class SteamApi {
         help.setResizable(false);
         // 设置窗口大小
         help.setSize(480,330);
+        // 设置居中
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        int x = (int)(toolkit.getScreenSize().getWidth()-help.getWidth())/2;
+        int y = (int)(toolkit.getScreenSize().getHeight()-help.getHeight())/2;
+        help.setLocation(x, y);
         // 显示窗口
         help.setVisible(true);
     }
@@ -108,6 +119,11 @@ public class SteamApi {
         register.setResizable(false);
         // 设置窗口大小
         register.setSize(480,330);
+        // 设置居中
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        int x = (int)(toolkit.getScreenSize().getWidth()-register.getWidth())/2;
+        int y = (int)(toolkit.getScreenSize().getHeight()-register.getHeight())/2;
+        register.setLocation(x, y);
         // 显示窗口
         register.setVisible(true);
     }
@@ -118,6 +134,11 @@ public class SteamApi {
         ssf.setResizable(false);
         // 设置窗口大小
         ssf.setSize(1000,600);
+        // 设置居中
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        int x = (int)(toolkit.getScreenSize().getWidth()-ssf.getWidth())/2;
+        int y = (int)(toolkit.getScreenSize().getHeight()-ssf.getHeight())/2;
+        ssf.setLocation(x, y);
         // 显示窗口
         ssf.setVisible(true);
     }

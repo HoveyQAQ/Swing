@@ -17,7 +17,7 @@ public class HelpFrame extends JFrame {
         JPanel root = new JPanel();
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
         // 不使用布局器
         root.setLayout( null );
         // 设置Steam图标
@@ -53,6 +53,11 @@ public class HelpFrame extends JFrame {
                 frame.setResizable(false);
                 // 设置窗口大小
                 frame.setSize(480,330);
+                // 设置居中
+                Toolkit toolkit = Toolkit.getDefaultToolkit();
+                int x = (int)(toolkit.getScreenSize().getWidth()-frame.getWidth())/2;
+                int y = (int)(toolkit.getScreenSize().getHeight()-frame.getHeight())/2;
+                frame.setLocation(x, y);
                 // 显示窗口
                 frame.setVisible(true);
                 dispose();
@@ -66,6 +71,11 @@ public class HelpFrame extends JFrame {
             frame.setResizable(false);
             // 设置窗口大小
             frame.setSize(480,330);
+            // 设置居中
+            Toolkit toolkit = Toolkit.getDefaultToolkit();
+            int x = (int)(toolkit.getScreenSize().getWidth()-frame.getWidth())/2;
+            int y = (int)(toolkit.getScreenSize().getHeight()-frame.getHeight())/2;
+            frame.setLocation(x, y);
             // 显示窗口
             frame.setVisible(true);
             dispose();
