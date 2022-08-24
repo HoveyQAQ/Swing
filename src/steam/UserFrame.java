@@ -65,14 +65,16 @@ public class UserFrame extends JFrame {
             dispose();
         });
         store.addActionListener(e -> {
-            SteamApi.Openstore(name);
+            SteamApi.OpenStore(name);
             dispose();
         });
         storehouse.addActionListener(e -> {
-
+            SteamApi.OpenStoreHouse(name);
+            dispose();
         });
         market.addActionListener(e -> {
-
+            SteamApi.OpenMarket(name);
+            dispose();
         });
         snake.addActionListener(e -> {
             JFrame snakeGame = new MainFrame();

@@ -5,7 +5,23 @@ import java.awt.*;
 import java.sql.*;
 
 public class SteamApi {
-
+    public static void OpenMarket(String name) {
+        SteamMarketFrame steamMarketFrame = new SteamMarketFrame(name);
+        steamMarketFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        steamMarketFrame.setResizable(false);
+        // 设置窗口大小
+        steamMarketFrame.setSize(1000,600);
+        // 设置居中
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        int x = (int)(toolkit.getScreenSize().getWidth()-steamMarketFrame.getWidth())/2;
+        int y = (int)(toolkit.getScreenSize().getHeight()-steamMarketFrame.getHeight())/2;
+        steamMarketFrame.setLocation(x, y);
+        // 显示窗口
+        steamMarketFrame.setVisible(true);
+    }
+    public static void OpenStoreHouse(String name) {
+        
+    }
     public static void UserRequest (String name)
     {
         JFrame userCenterFrame = new UserCenterFrame(name);
@@ -127,7 +143,7 @@ public class SteamApi {
         register.setVisible(true);
     }
 
-    public static void Openstore(String name) {
+    public static void OpenStore(String name) {
         JFrame ssf = new SteamStoreFrame(name);
         ssf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ssf.setResizable(false);
