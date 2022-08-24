@@ -79,37 +79,37 @@ public class SteamStoreFrame extends UserFrame {
             SteamApi.openStore(name);
         });
         Pbuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"EldenRing");
-            dispose();
-            SteamApi.openStore(name);
-        });
-        Abuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"Naraka");
-            dispose();
-            SteamApi.openStore(name);
-        });
-        Ebuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"NBA2K2022");
-            dispose();
-            SteamApi.openStore(name);
-        });
-        Nbuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"APEX");
-            dispose();
-            SteamApi.openStore(name);
-        });
-        Fbuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"HITMAN");
-            dispose();
-            SteamApi.openStore(name);
-        });
-        Hbuy.addActionListener(e -> {
             SteamApi.deductBalance(98,name,"PUBG");
             dispose();
             SteamApi.openStore(name);
         });
-        HMbuy.addActionListener(e -> {
+        Abuy.addActionListener(e -> {
+            SteamApi.deductBalance(98,name,"APEX");
+            dispose();
+            SteamApi.openStore(name);
+        });
+        Ebuy.addActionListener(e -> {
+            SteamApi.deductBalance(98,name,"EldenRing");
+            dispose();
+            SteamApi.openStore(name);
+        });
+        Nbuy.addActionListener(e -> {
+            SteamApi.deductBalance(98,name,"Nakara");
+            dispose();
+            SteamApi.openStore(name);
+        });
+        Fbuy.addActionListener(e -> {
+            SteamApi.deductBalance(98,name,"Horizon5");
+            dispose();
+            SteamApi.openStore(name);
+        });
+        Hbuy.addActionListener(e -> {
             SteamApi.deductBalance(98,name,"HumanFallFlat");
+            dispose();
+            SteamApi.openStore(name);
+        });
+        HMbuy.addActionListener(e -> {
+            SteamApi.deductBalance(98,name,"HITMAN");
             dispose();
             SteamApi.openStore(name);
         });
@@ -119,12 +119,12 @@ public class SteamStoreFrame extends UserFrame {
             SteamApi.openStore(name);
         });
         NBAbuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"Overcooked");
+            SteamApi.deductBalance(98,name,"NBA2K2022");
             dispose();
             SteamApi.openStore(name);
         });
         Obuy.addActionListener(e -> {
-            SteamApi.deductBalance(98,name,"Horizon5");
+            SteamApi.deductBalance(98,name,"Overcooked");
             dispose();
             SteamApi.openStore(name);
         });

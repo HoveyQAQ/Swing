@@ -103,9 +103,6 @@ public class MainFrame extends JFrame {
                     g.fillRect(node.getX()*15, node.getY()*15,15,15 );
                 }
                 g.fillRect(food.getX()*15,food.getY()*15,15,15);
-
-
-
             }
         };
         add(jPanel);
