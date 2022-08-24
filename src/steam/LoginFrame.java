@@ -9,7 +9,6 @@ public class LoginFrame extends JFrame {
         super(title);
         JPanel root = new JPanel();
         root.setBackground(new Color(42, 45, 50));
-//        this.setLocationRelativeTo(null);
         this.setContentPane( root );
         // 不使用布局器
         root.setLayout( null );

@@ -55,7 +55,6 @@ public class SteamApi {
             rs = st.executeQuery();
             if (rs.next())
             {
-//                System.out.println("成功");
                 String sql2 = "update record set acname = ?, password = ? where id = ?";
                 st = conn.prepareStatement(sql2);
                 st.setString(3,"1");
@@ -173,7 +172,6 @@ public class SteamApi {
             if (rs.next())
             {
                 String key = rs.getNString( "IDkey" );
-                System.out.println("成功");
                 String sql2 = "update user set acname = ? where IDkey = ?";
                 st = conn.prepareStatement(sql2);
                 st.setString(2,key);
@@ -233,7 +231,6 @@ public class SteamApi {
             if (rs.next())
             {
                 String key = rs.getNString( "IDkey" );
-                System.out.println("成功");
                 String sql2 = "update user set password = ? where IDkey = ?";
                 st = conn.prepareStatement(sql2);
                 st.setString(2,key);

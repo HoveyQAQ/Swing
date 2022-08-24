@@ -17,7 +17,6 @@ public class HelpFrame extends JFrame {
         JPanel root = new JPanel();
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
-//        this.setLocationRelativeTo(null);
         // 不使用布局器
         root.setLayout( null );
         // 设置Steam图标

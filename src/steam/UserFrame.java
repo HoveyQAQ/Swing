@@ -11,7 +11,6 @@ public class UserFrame extends JFrame {
 
         root.setBackground(new Color(42, 45, 50));
         this.setContentPane( root );
-//        this.setLocationRelativeTo(null);
         root.setLayout( null );
         SteamLabel yourself = new SteamLabel("用户:" + name);
         SteamButton back = new SteamButton("退出");
