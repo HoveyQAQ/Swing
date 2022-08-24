@@ -78,6 +78,7 @@ public class UserFrame extends JFrame {
         });
         snake.addActionListener(e -> {
             JFrame snakeGame = new MainFrame();
+            snakeGame.setTitle("Steam 贪吃蛇");
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             int x = (int)(toolkit.getScreenSize().getWidth()-snakeGame.getWidth())/2;
             int y = (int)(toolkit.getScreenSize().getHeight()-snakeGame.getHeight())/2;
