@@ -138,9 +138,10 @@ public class RegisterFrame extends JFrame {
                 getKey(name);
             } else {
                 s = str;
-                String sql2 = "update record set acname = ? where id = ?";
+                String sql2 = "update record set acname = ? , password = ? where id = ?";
                 st = conn.prepareStatement(sql2);
-                st.setString(2,"1");
+                st.setString(3,"1");
+                st.setString(2,"");
                 st.setString(1,name);
                 int n=st.executeUpdate();//这里面不需要参数
             }
