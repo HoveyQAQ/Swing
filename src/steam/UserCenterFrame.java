@@ -121,7 +121,7 @@ public class UserCenterFrame extends UserFrame{
         root.add( accountNameField );
         root.add( passwordField );
         root.add( uAB );
-        root.add( uNB );
+//        root.add( uNB );
         root.add( uPB );
         root.add( uCB );
 

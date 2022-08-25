@@ -70,7 +70,6 @@ public class UserFrame extends JFrame {
         });
         storehouse.addActionListener(e -> {
             SteamApi.openStoreHouse(name);
-
         });
         market.addActionListener(e -> {
             SteamApi.openMarket(name);

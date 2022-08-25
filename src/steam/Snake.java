@@ -21,8 +21,6 @@ public class Snake {
         body.add(new Node(20,20));
         body.add(new Node(21,20));
 
-
-
     }
 
     public void move() {
