@@ -500,32 +500,35 @@ public class SteamApi {
         switch (kind) {
             case "Recoil":
                 SteamApi.addStoreHouse(name,RecoilSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得:" + RecoilSet[randomKey],"反冲武器箱" ,JOptionPane.INFORMATION_MESSAGE);
+                if (SteamApi.deductBalance(v,name))
+                    JOptionPane.showMessageDialog(null, "恭喜您获得:" + RecoilSet[randomKey],"反冲武器箱" ,JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Nightmares":
                 SteamApi.addStoreHouse(name,NightmaresSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得:" + NightmaresSet[randomKey], "梦魇武器箱",JOptionPane.INFORMATION_MESSAGE);
+                if (SteamApi.deductBalance(v,name))
+                    JOptionPane.showMessageDialog(null, "恭喜您获得:" + NightmaresSet[randomKey], "梦魇武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Clutch":
                 SteamApi.addStoreHouse(name,ClutchSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得:" + ClutchSet[randomKey], "命悬武器箱",JOptionPane.INFORMATION_MESSAGE);
+                if (SteamApi.deductBalance(v,name))
+                    JOptionPane.showMessageDialog(null, "恭喜您获得:" + ClutchSet[randomKey], "命悬武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Gamma":
                 SteamApi.addStoreHouse(name,GammaSet[randomKey]);
-                JOptionPane.showMessageDialog(null, "恭喜您获得:" + GammaSet[randomKey], "伽马武器箱",JOptionPane.INFORMATION_MESSAGE);
+                if (SteamApi.deductBalance(v,name))
+                    JOptionPane.showMessageDialog(null, "恭喜您获得:" + GammaSet[randomKey], "伽马武器箱",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Cobble":
                 SteamApi.addStoreHouse(name,CobbleSet[randomKey1]);
                 v = 4000;
-                JOptionPane.showMessageDialog(null, "恭喜您获得:" + CobbleSet[randomKey1], "古堡激战纪念包",JOptionPane.INFORMATION_MESSAGE);
+                if (SteamApi.deductBalance(v,name))
+                    JOptionPane.showMessageDialog(null, "恭喜您获得:" + CobbleSet[randomKey1], "古堡激战纪念包",JOptionPane.INFORMATION_MESSAGE);
                 break;
             default: break;
         }
-        SteamApi.deductBalance(v,name);
-
     }
 
-    private static void deductBalance(int value, String name) {
+    private static boolean deductBalance(int value, String name) {
         String str = null;
         Connection conn = null;
         PreparedStatement st = null;
@@ -563,7 +566,10 @@ public class SteamApi {
                 st.setInt(1, p - value);
             }
             else
-                JOptionPane.showMessageDialog(null, "余额不足！！", "请扫描充值余额",JOptionPane.ERROR_MESSAGE);
+            {
+                JOptionPane.showMessageDialog(null, "余额不足！！", "请扫描二维码充值余额",JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
             int n=st.executeUpdate();//这里面不需要参数
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -579,6 +585,7 @@ public class SteamApi {
                 e.printStackTrace();
             }
         }
+        return true;
     }
 
     public static void addStoreHouse(String name, String Item) {
@@ -1356,7 +1363,7 @@ public class SteamApi {
                 JOptionPane.showMessageDialog(null, "购买成功 扣款98元", "欢迎下次光临",JOptionPane.INFORMATION_MESSAGE);
             }
             else
-                JOptionPane.showMessageDialog(null, "余额不足！！", "请扫描充值余额",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "余额不足！！", "请二维码扫描充值余额",JOptionPane.ERROR_MESSAGE);
             int n=st.executeUpdate();//这里面不需要参数
         } catch (Exception e) {
             // TODO Auto-generated catch block
